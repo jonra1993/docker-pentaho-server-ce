@@ -20,5 +20,9 @@ RUN wget --progress=dot:giga https://razaoinfo.dl.sourceforge.net/project/pentah
     && chmod +x pentaho-server/start-pentaho.sh \
     && sed -i -e 's/\(exec ".*"\) start/\1 run/' pentaho-server/tomcat/bin/startup.sh
     
+RUN cd pentaho-server/pentaho-solutions/system \
+    && wget --progress=dot:giga https://ufpr.dl.sourceforge.net/project/datafor-visualizer/V3.3/datafor.zip \
+	&& unzip -q *.zip \
+	&& rm -f *.zip
 
 EXPOSE 8080
